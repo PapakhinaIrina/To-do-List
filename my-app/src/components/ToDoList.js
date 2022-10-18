@@ -1,28 +1,57 @@
-import  React, {useState}  from "react";
-import TodoForm from "./ToDoForm";
+import React, { useState } from 'react';
+import ToDoForm from './ToDoForm';
+import Todo from './Todo';
 
 function ToDoList() {
   const [todos, setTodos] = useState([]);
 
-  // eslint-disable-next-line
-  const addToDo = todo => {
-    if(!todo.text || /^\s*$/.text(todo.text)){
-      return 
+  const addTodo = todo => {
+    if (!todo.text || /^\s*$/.test(todo.text)) {
+      return;
     }
 
-    const newToDos = [todo, ...todos];
-    setTodos(newToDos);
+    const newTodos = [todo, ...todos];
 
+    setTodos(newTodos);
+    console.log(...todos);
+  };
 
-  }
+  const updateTodo = (todoId, newValue) => {
+    if (!newValue.text || /^\s*$/.test(newValue.text)) {
+      return;
+    }
 
-  return(
-    <div>
-      <h1>What's the plan for today?</h1>
-      <TodoForm onSubmit={addToDo}/>
-    </div>
+    setTodos(prev => prev.map(item => (item.id === todoId ? newValue : item)));
+  };
 
-  )
+  const removeTodo = id => {
+    const removedArr = [...todos].filter(todo => todo.id !== id);
+
+    setTodos(removedArr);
+  };
+
+  const completeTodo = id => {
+    let updatedTodos = todos.map(todo => {
+      if (todo.id === id) {
+        todo.isComplete = !todo.isComplete;
+      }
+      return todo;
+    });
+    setTodos(updatedTodos);
+  };
+
+  return (
+    <>
+      <h1>Что будем делать сегодня?</h1>
+      <ToDoForm onSubmit={addTodo} />
+      <Todo
+        todos={todos}
+        completeTodo={completeTodo}
+        removeTodo={removeTodo}
+        updateTodo={updateTodo}
+      />
+    </>
+  );
 }
 
 export default ToDoList;
