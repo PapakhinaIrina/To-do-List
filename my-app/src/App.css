@@ -1,0 +1,120 @@
+* {
+  background-color: rgb(249, 236, 226);
+  border-radius: 30px;
+  box-sizing: border-box;
+  margin: 10px;
+  padding: 10px;
+  font-family: 'Trattatello, fantasy';
+};
+
+body {
+  background:rgb(242, 249, 255);
+}
+  .todo-app {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    width: 520px;
+    min-height: 600px;
+    background: #fffdfc;
+    text-align: center;
+    margin: 128px auto;
+    border-radius: 30px;
+    padding-bottom: 32px;
+  }
+  
+  h1 {
+    margin: 32px 0;
+    color: rgb(52, 51, 51);
+    font-size: 24px;
+  }
+  
+  .complete {
+    text-decoration: line-through;
+    opacity: 0.4;
+  }
+  
+  .todo-form {
+    margin-bottom: 32px;
+  }
+  
+  .todo-input {
+    padding: 10px 32px 14px 16px;
+    border-radius: 30px;
+    border: 1px solid #f6a234;
+    outline: none;
+    width: 320px;
+    background: #fffdfc;
+  }
+  
+  .todo-input::placeholder {
+    color: rgb(168, 103, 6);
+  }
+  
+  .todo-button {
+    padding: 16px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    outline: none;
+    background:rgb(240, 126, 109) ;
+    color: rgb(255, 255, 255);
+    text-transform: capitalize;
+  }
+  
+  .todo-input.edit {
+    border: 2px solid white;
+  }
+  
+  .todo-button.edit {
+    background: #f6a234;
+    padding: 16px 22px;
+  }
+  
+  .todo-container {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+  }
+  
+  .todo-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 4px auto;
+    color: rgb(54, 50, 50);
+    background:rgb(161, 218, 247);
+    padding: 16px;
+    border-radius: 100px;
+    width: 90%;
+  }
+  
+  .todo-row:nth-child(4n + 1) {
+    background:rgb(178, 205, 158);
+  }
+  
+  .todo-row:nth-child(4n + 2) {
+    background: rgb(255, 182, 99);
+  }
+  
+  .todo-row:nth-child(4n + 3) {
+    background:rgb(183, 152, 216);
+  }
+  
+  .icons {
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+    cursor: pointer;
+  }
+  
+  .delete-icon {
+    font-size: 15px;
+    margin-right: 5px;
+    color: #fff;
+  }
+
+  .edit-icon {
+    font-size: 15px;
+    color: #fff;
+  }
