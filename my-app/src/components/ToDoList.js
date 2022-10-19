@@ -42,7 +42,7 @@ function ToDoList() {
 
   return (
     <>
-      <h1>Что будем делать сегодня?</h1>
+      <h1>План на сегодня</h1>
       <ToDoForm onSubmit={addTodo} />
       <Todo
         todos={todos}
